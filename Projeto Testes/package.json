@@ -1,0 +1,27 @@
+{
+  "name": "testes-de-software",
+  "version": "1.0.0",
+  "description": "Repositório criado para a disciplina de Testes de Software do curso de Engenharia de Software/UCB Este será utilizado para armazenar e versionar o código fonte e quaisquer arquivos relacionados ao trabalho final da matéria.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/enrique-sem-h/testes-de-software.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/enrique-sem-h/testes-de-software/issues"
+  },
+  "homepage": "https://github.com/enrique-sem-h/testes-de-software#readme",
+  "dependencies": {
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "mysql2": "^3.15.3",
+    "sequelize": "^6.37.7"
+  }
+}
