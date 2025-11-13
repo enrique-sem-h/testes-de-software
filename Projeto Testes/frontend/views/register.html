@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cadastro</title>
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+
+<body>
+  <div class="card">
+    <h2>Criar Conta</h2>
+    <form id="registerForm">
+      <input type="text" id="nome" placeholder="Nome completo" required>
+      <input type="email" id="email" placeholder="E-mail" required>
+      <input type="password" id="senha" placeholder="Senha" required>
+      <button type="submit">Cadastrar</button>
+    </form>
+    <div id="mensagem" class="msg"></div>
+  </div>
+
+  <script id="tpl-msg" type="text/template">
+    {{#success}}<p class="msg success"> Conta criada com sucesso!</p>{{/success}}
+    {{#error}}<p class="msg error">{{error}}</p>{{/error}}
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/mustache@4.2.0/mustache.min.js"></script>
+  <script>
+    document.getElementById('registerForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const nome = nome.value.trim();
+      const email = email.value.trim();
+      const senha = senha.value.trim();
+      const msgEl = document.getElementById('mensagem');
+      msgEl.innerHTML = '<p class="msg">⏳ Criando conta...</p>';
+
+      try {
+        const res = await fetch('http://localhost:4000/api/auth/register', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ nome, email, senha })
+        });
+        const data = await res.json();
+
+        const tpl = document.getElementById('tpl-msg').innerHTML;
+        if (res.ok) {
+          msgEl.innerHTML = Mustache.render(tpl, { success: true });
+          setTimeout(() => window.location.href = '/login.html', 1500);
+        } else {
+          msgEl.innerHTML = Mustache.render(tpl, { error: data.message || 'Erro ao cadastrar.' });
+        }
+      } catch {
+        const tpl = document.getElementById('tpl-msg').innerHTML;
+        msgEl.innerHTML = Mustache.render(tpl, { error: 'Erro de conexão com o servidor.' });
+      }
+    });
+  </script>
+</body>
+
+</html>

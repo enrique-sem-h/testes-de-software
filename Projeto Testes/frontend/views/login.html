@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Login</title>
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+
+<body>
+
+  <div class="card">
+    <h2>Entrar</h2>
+    <form id="loginForm">
+      <input type="email" placeholder="E-mail" id="email" required>
+      <input type="password" placeholder="Senha" id="senha" required>
+      <button type="submit">Entrar</button>
+    </form>
+    <div id="mensagem" class="msg"></div>
+  </div>
+
+  <script id="tpl-msg" type="text/template">
+    {{#success}}
+      <p class="msg success">Login realizado com sucesso!</p>
+    {{/success}}
+    {{#error}}
+      <p class="msg error">{{error}}</p>
+    {{/error}}
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/mustache@4.2.0/mustache.min.js"></script>
+  <script>
+    document.getElementById('loginForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const email = document.getElementById('email').value.trim();
+      const senha = document.getElementById('senha').value.trim();
+      const msgEl = document.getElementById('mensagem');
+      msgEl.innerHTML = '<p class="msg">⏳ Entrando...</p>';
+
+      try {
+        const res = await fetch('http://localhost:4000/api/auth/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email, senha })
+        });
+        const data = await res.json();
+
+        if (res.ok) {
+          const tpl = document.getElementById('tpl-msg').innerHTML;
+          msgEl.innerHTML = Mustache.render(tpl, { success: true });
+          localStorage.setItem('token', data.token);
+          setTimeout(() => window.location.href = '/materiais.html', 1500);
+        } else {
+          const tpl = document.getElementById('tpl-msg').innerHTML;
+          msgEl.innerHTML = Mustache.render(tpl, { error: data.message || 'Credenciais inválidas.' });
+        }
+      } catch (err) {
+        const tpl = document.getElementById('tpl-msg').innerHTML;
+        msgEl.innerHTML = Mustache.render(tpl, { error: 'Erro de conexão com o servidor.' });
+      }
+    });
+  </script>
+</body>
+
+</html>
