@@ -12,9 +12,10 @@
   <div class="card">
     <h2>Criar Conta</h2>
     <form id="registerForm">
-      <input type="text" id="nome" placeholder="Nome completo" required>
-      <input type="email" id="email" placeholder="E-mail" required>
-      <input type="password" id="senha" placeholder="Senha" required>
+      <input type="text" id="name" placeholder="Full Name" required>
+      <input type="email" id="email" placeholder="Email" required>
+      <input type="password" id="password" placeholder="Password" required>
+      <input type="password" id="confirmPassword" placeholder="Confirm Password" required>      
       <button type="submit">Cadastrar</button>
     </form>
     <div id="mensagem" class="msg"></div>
@@ -29,32 +30,55 @@
   <script>
     document.getElementById('registerForm').addEventListener('submit', async (e) => {
       e.preventDefault();
-      const nome = nome.value.trim();
-      const email = email.value.trim();
-      const senha = senha.value.trim();
+
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const password = document.getElementById('password').value.trim();
+      const confirmPassword = document.getElementById('confirmPassword').value.trim();
+
       const msgEl = document.getElementById('mensagem');
-      msgEl.innerHTML = '<p class="msg">⏳ Criando conta...</p>';
+      msgEl.innerHTML = '<p class="msg">⏳ Creating account...</p>';
 
-      try {
-        const res = await fetch('http://localhost:4000/api/auth/register', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ nome, email, senha })
-        });
-        const data = await res.json();
+    if (!name || !email || !password || !confirmPassword) {
+      const tpl = document.getElementById('tpl-msg').innerHTML;
+      msgEl.innerHTML = Mustache.render(tpl, { error: 'All fields are required.' });
+      return;
+    }
 
-        const tpl = document.getElementById('tpl-msg').innerHTML;
-        if (res.ok) {
-          msgEl.innerHTML = Mustache.render(tpl, { success: true });
-          setTimeout(() => window.location.href = '/login.html', 1500);
-        } else {
-          msgEl.innerHTML = Mustache.render(tpl, { error: data.message || 'Erro ao cadastrar.' });
-        }
-      } catch {
-        const tpl = document.getElementById('tpl-msg').innerHTML;
-        msgEl.innerHTML = Mustache.render(tpl, { error: 'Erro de conexão com o servidor.' });
+    if (password !== confirmPassword) {
+      const tpl = document.getElementById('tpl-msg').innerHTML;
+      msgEl.innerHTML = Mustache.render(tpl, { error: 'Passwords do not match.' });
+      return;
+    }
+
+    try {
+      const res = await fetch('/auth/register', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name,
+          email,
+          password,
+          confirmPassword
+        })
+      });
+
+      const data = await res.json();
+      const tpl = document.getElementById('tpl-msg').innerHTML;
+
+      if (res.ok) {
+        msgEl.innerHTML = Mustache.render(tpl, { success: true });
+        document.getElementById('registerForm').reset();
+        setTimeout(() => window.location.href = '/login.html', 1500);
+      } else {
+        msgEl.innerHTML = Mustache.render(tpl, { error: data.message || 'Error registering account.' });
       }
-    });
+    } catch (err) {
+      console.error('Fetch error:', err);
+      const tpl = document.getElementById('tpl-msg').innerHTML;
+      msgEl.innerHTML = Mustache.render(tpl, { error: 'Server connection error.' });
+    }
+  });
   </script>
 </body>
 
