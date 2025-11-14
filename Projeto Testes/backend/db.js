@@ -1,6 +1,6 @@
 import mysql from 'mysql2';
-import dotenv from 'dotenv';
 
+import dotenv from 'dotenv';
 dotenv.config({ path: './backend/.env' });
 
 // database connection pool

@@ -11,75 +11,20 @@
 <body>
   <div class="card">
     <h2>Criar Conta</h2>
-    <form id="registerForm">
-      <input type="text" id="name" placeholder="Full Name" required>
-      <input type="email" id="email" placeholder="Email" required>
-      <input type="password" id="password" placeholder="Password" required>
-      <input type="password" id="confirmPassword" placeholder="Confirm Password" required>      
+    <form id="registerForm" action="/auth/register" method="POST">
+      <input type="text" id="name" name="name" placeholder="Full Name" value="{{name}}">
+      <input type="email" id="email" name="email" placeholder="Email" value="{{email}}">
+      <input type="password" id="password" name="password" placeholder="Password" value="{{password}}">
+      <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password"
+        value="{{confirmPassword}}">
       <button type="submit">Cadastrar</button>
     </form>
-    <div id="mensagem" class="msg"></div>
+    <p class="msg">Já tem uma conta? <a href="/login">Entrar</a></p>
+    <div id="mensagem" class="msg">
+      {{#success}}<p class="msg success"> Conta criada com sucesso!</p>{{/success}}
+      {{#error}}<p class="msg error">{{{error}}}</p>{{/error}}
+    </div>
   </div>
-
-  <script id="tpl-msg" type="text/template">
-    {{#success}}<p class="msg success"> Conta criada com sucesso!</p>{{/success}}
-    {{#error}}<p class="msg error">{{error}}</p>{{/error}}
-  </script>
-
-  <script src="https://cdn.jsdelivr.net/npm/mustache@4.2.0/mustache.min.js"></script>
-  <script>
-    document.getElementById('registerForm').addEventListener('submit', async (e) => {
-      e.preventDefault();
-
-      const name = document.getElementById('name').value.trim();
-      const email = document.getElementById('email').value.trim();
-      const password = document.getElementById('password').value.trim();
-      const confirmPassword = document.getElementById('confirmPassword').value.trim();
-
-      const msgEl = document.getElementById('mensagem');
-      msgEl.innerHTML = '<p class="msg">⏳ Creating account...</p>';
-
-    if (!name || !email || !password || !confirmPassword) {
-      const tpl = document.getElementById('tpl-msg').innerHTML;
-      msgEl.innerHTML = Mustache.render(tpl, { error: 'All fields are required.' });
-      return;
-    }
-
-    if (password !== confirmPassword) {
-      const tpl = document.getElementById('tpl-msg').innerHTML;
-      msgEl.innerHTML = Mustache.render(tpl, { error: 'Passwords do not match.' });
-      return;
-    }
-
-    try {
-      const res = await fetch('/auth/register', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          name,
-          email,
-          password,
-          confirmPassword
-        })
-      });
-
-      const data = await res.json();
-      const tpl = document.getElementById('tpl-msg').innerHTML;
-
-      if (res.ok) {
-        msgEl.innerHTML = Mustache.render(tpl, { success: true });
-        document.getElementById('registerForm').reset();
-        setTimeout(() => window.location.href = '/login.html', 1500);
-      } else {
-        msgEl.innerHTML = Mustache.render(tpl, { error: data.message || 'Error registering account.' });
-      }
-    } catch (err) {
-      console.error('Fetch error:', err);
-      const tpl = document.getElementById('tpl-msg').innerHTML;
-      msgEl.innerHTML = Mustache.render(tpl, { error: 'Server connection error.' });
-    }
-  });
-  </script>
 </body>
 
 </html>
