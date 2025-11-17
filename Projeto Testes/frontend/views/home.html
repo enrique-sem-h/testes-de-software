@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MaterialTroca — Plataforma de Troca de Materiais</title>
+
+  <!-- Tipografia profissional -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Link pro CSS separado -->
+  <link rel="stylesheet"  href="../css/styles2.css">
+</head>
+<body>
+  <div class="wrap">
+
+    <!-- Header -->
+    <header class="app-header" role="banner" aria-label="Cabeçalho do site">
+      <div style="display:flex;align-items:center;gap:14px">
+        <div class="brand">
+          <div class="logo">MT</div>
+          <div>
+            <h1>MaterialTroca</h1>
+            <p>Troca colaborativa de materiais</p>
+          </div>
+        </div>
+
+        <nav class="topnav" aria-label="Menu principal" style="margin-left:18px">
+          <a href="#home">Início</a>
+          <a href="#upload">Compartilhar</a>
+          <a href="#exchange">Trocar</a>
+        </nav>
+      </div>
+
+      <div class="auth" role="navigation" aria-label="Acesso">
+        <!-- Ajuste o caminho se a sua pasta for diferente -->
+        <a class="btn btn-ghost" href="login.html" title="Entrar">
+          Entrar
+        </a>
+        <a class="btn btn-primary" href="register.html" title="Cadastrar">
+          Cadastro
+        </a>
+      </div>
+    </header>
+
+    <!-- Hero -->
+    <section id="home" class="hero">
+      <div class="hero-card">
+        <span class="kicker">Comunidade</span>
+        <h2>Compartilhe materiais. Aprenda rápido. Conecte-se com colegas.</h2>
+        <p class="lead">Plataforma pensada para estudantes trocarem materiais digitais de forma segura e organizada — publique, solicite trocas e encontre conteúdo relevante por assunto e nível.</p>
+
+        <div class="cta-row" style="margin-bottom:14px">
+          <a class="btn btn-primary cta-small" href="../Projetos Gerais/FrontEnd/Views/register.html">📤 Publicar material</a>
+          <a class="btn btn-ghost cta-small" href="#exchange">🔄 Explorar materiais</a>
+        </div>
+
+        <div class="stats" aria-hidden="true">
+          <div class="stat"><div class="n">2.547</div><div class="t">Materiais</div></div>
+          <div class="stat"><div class="n">1.089</div><div class="t">Usuários</div></div>
+          <div class="stat"><div class="n">4.8★</div><div class="t">Avaliação média</div></div>
+        </div>
+      </div>
+
+      <aside class="card-cta">
+        <h3>Por que usar?</h3>
+        <p class="small">Fácil de publicar, filtros por assunto e nível, e troca direta entre estudantes — sem transações financeiras.</p>
+
+        <div style="margin-top:16px">
+          <strong style="display:block">Perfis</strong>
+          <p class="small" style="margin-top:8px">Estudante — publicar e solicitar trocas. Administrador — moderação e gestão.</p>
+        </div>
+      </aside>
+    </section>
+    
+
+    <!-- Featured -->
+    <section class="section" aria-labelledby="destaques">
+      <h3 id="destaques">Materiais em destaque</h3>
+      <div class="grid" role="list">
+        <article class="material" role="listitem" aria-label="Física - Mecânica Clássica">
+          <div style="display:flex;gap:12px;align-items:center">
+            <div class="icon">📕</div>
+            <div>
+              <h4>Física — Mecânica Clássica</h4>
+              <div class="meta">João Silva • Ensino Médio • PDF</div>
+            </div>
+          </div>
+
+          <div class="tags" aria-hidden="true">
+            <span class="tag">Física</span>
+            <span class="tag">Ensino Médio</span>
+          </div>
+
+          <div class="footer">
+            <div class="meta">⭐ 4.8 • 24 avaliações</div>
+            <a class="small-btn" href="#exchange">Solicitar</a>
+          </div>
+        </article>
+
+        <article class="material" role="listitem" aria-label="Química Orgânica">
+          <div style="display:flex;gap:12px;align-items:center">
+            <div class="icon">📗</div>
+            <div>
+              <h4>Apostila de Química Orgânica</h4>
+              <div class="meta">Maria Santos • Ensino Médio • PDF</div>
+            </div>
+          </div>
+
+          <div class="tags">
+            <span class="tag">Química</span>
+            <span class="tag">Apostila</span>
+          </div>
+
+          <div class="footer">
+            <div class="meta">⭐ 4.9 • 42 avaliações</div>
+            <a class="small-btn" href="#exchange">Solicitar</a>
+          </div>
+        </article>
+
+        <article class="material" role="listitem" aria-label="Videoaula História">
+          <div style="display:flex;gap:12px;align-items:center">
+            <div class="icon">🎥</div>
+            <div>
+              <h4>Videoaula — História do Brasil</h4>
+              <div class="meta">Prof. Carlos Mendes • Ensino Fundamental • Vídeo</div>
+            </div>
+          </div>
+
+          <div class="tags">
+            <span class="tag">História</span>
+            <span class="tag">Vídeo</span>
+          </div>
+
+          <div class="footer">
+            <div class="meta">⭐ 4.7 • 18 avaliações</div>
+            <a class="small-btn" href="#exchange">Solicitar</a>
+          </div>
+        </article>
+
+        <article class="material" role="listitem" aria-label="Matemática — Álgebra">
+          <div style="display:flex;gap:12px;align-items:center">
+            <div class="icon">📙</div>
+            <div>
+              <h4>Exercícios de Matemática — Álgebra</h4>
+              <div class="meta">Ana Costa • Ensino Médio • PDF</div>
+            </div>
+          </div>
+
+          <div class="tags">
+            <span class="tag">Matemática</span>
+            <span class="tag">Exercícios</span>
+          </div>
+
+          <div class="footer">
+            <div class="meta">⭐ 4.6 • 31 avaliações</div>
+            <a class="small-btn" href="#exchange">Solicitar</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Upload (visual-only form) -->
+    <section id="upload" class="section">
+        <div class="wrap">
+            <h3>Compartilhe seu Material</h3>
+            <p class="small" style="margin-bottom: 20px;">
+                Faça upload de seus materiais de estudo e ajude outros estudantes a aprender
+            </p>
+
+            <div class="panel">
+                
+                <form id="uploadForm">
+
+                    <div class="form-group">
+                        <label>Título do Material</label>
+                        <input type="text" placeholder="Ex: Física - Mecânica Clássica" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Descrição</label>
+                        <textarea placeholder="Descreva o conteúdo do material..." rows="4" required></textarea>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Assunto</label>
+                            <select required>
+                                <option value="">Selecione um assunto</option>
+                                <option>Matemática</option>
+                                <option>Português</option>
+                                <option>Física</option>
+                                <option>Química</option>
+                                <option>Biologia</option>
+                                <option>História</option>
+                                <option>Geografia</option>
+                                <option>Inglês</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Nível Escolar</label>
+                            <select required>
+                                <option value="">Selecione um nível</option>
+                                <option>Ensino Fundamental</option>
+                                <option>Ensino Médio</option>
+                                <option>Ensino Superior</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Tipo de Arquivo</label>
+                            <select required>
+                                <option value="">Selecione um tipo</option>
+                                <option>PDF</option>
+                                <option>Vídeo</option>
+                                <option>Apostila</option>
+                                <option>Exercícios</option>
+                                <option>Anotações</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Arquivo</label>
+                        <div class="file">
+                            Arraste o arquivo aqui ou clique para selecionar
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">
+                        📤 Publicar Material
+                    </button>
+
+                </form>
+            </div>
+        </div>
+    </section>
+
+
+    
+    <!-- Exchange (visual) -->
+    <section id="exchange" class="section">
+      <h3>Solicitar troca</h3>
+      <div class="panel">
+        <form>
+          <div class="form-row">
+            <div>
+              <label>Material que procura</label>
+              <input type="text" placeholder="Ex: Álgebra">
+            </div>
+            <div>
+              <label>Material que oferece</label>
+              <input type="text" placeholder="Ex: Física">
+            </div>
+          </div>
+
+          <div style="margin-top:12px">
+            <label>Motivo</label>
+            <textarea placeholder="Por que deseja a troca?"></textarea>
+          </div>
+
+          <div style="margin-top:12px;display:flex;gap:10px">
+            <a class="btn btn-primary" href="#home">Criar solicitação</a>
+            <a class="btn btn-ghost" href="#home">Cancelar</a>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      &copy; 2025 MaterialTroca — Todos os direitos reservados.
+    </footer>
+
+  </div>
+</body>
+</html>
