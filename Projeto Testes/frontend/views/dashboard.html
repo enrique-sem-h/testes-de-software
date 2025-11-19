@@ -319,9 +319,10 @@
                         </div>
                     </div>
 
-                    <button type="submit" class="btn btn-primary">
-                        📤 Publicar Material
-                    </button>
+                    <form action="/api/upload" method="POST" enctype="multipart/form-data">
+                      <input type="file" name="arquivo" />
+                      <button type="submit">Enviar</button>
+                    </form>
 
                 </form>
             </div>
