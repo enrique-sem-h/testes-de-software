@@ -6,7 +6,7 @@ import { verifyToken } from '../utils/jwtMiddleware.js';
 export const router = express.Router();
 
 // Routes
-router.get('/', pagesController.home);
+router.get('/', pagesController.index);
 router.get('/login', pagesController.login);
 router.get('/register', pagesController.register);
 router.get('/dashboard', verifyToken, pagesController.dashboard);

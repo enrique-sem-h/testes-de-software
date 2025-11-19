@@ -1,7 +1,7 @@
 import * as db from '../db.js';
 
-const home = (req, res) => {
-  res.render('login');
+const index = (req, res) => {
+  res.render('index');
 }
 
 const login = (req, res) => {
@@ -14,11 +14,11 @@ const register = (req, res) => {
 
 const dashboard = async (req, res) => {
     const user = await db.getUser(req.user.id);
-    res.status(200).send(`Welcome ${user.name}`);
+    res.status(200).render('dashboard', { user });
 }
 
 export {
-    home,
+    index,
     login,
     register,
     dashboard
