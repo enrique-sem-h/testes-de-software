@@ -3,9 +3,11 @@ import mustacheExpress from 'mustache-express';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import cookieParser from 'cookie-parser';
+import dotenv from "dotenv";
 
 import { router as pagesRouter } from './routes/pages.js';
 import { router as authRouter } from './routes/auth.js';
+import uploadRoutes from "./routes/upload.js";
 
 // defining directory variable
 const rootDir = path.dirname(fileURLToPath(import.meta.url));
@@ -26,6 +28,8 @@ app.use(express.static(path.join(rootDir, '../frontend')));
 // Routes
 app.use('/', pagesRouter);
 app.use('/auth', authRouter);
+app.use("/api", uploadRoutes);
+
 
 // Start server
 app.listen(port, () => {
