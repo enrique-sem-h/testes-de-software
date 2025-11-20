@@ -32,9 +32,23 @@ async function deleteUser(id) {
   return getUser(result.insertId);
 }
 
+async function getMaterial(id) {
+  const [rows] = await pool.query(`SELECT * FROM materials WHERE id = ?`, [id]);
+  return rows[0];
+}
+
+async function uploadMaterial(title, description, subject, level, type, file_path, author_id, size) {
+  if (description === undefined) {
+    description = '';
+  }
+  const [result] = await pool.query('INSERT INTO materials (title, description, subject, level, type, file_path, author_id, size) VALUES (?, ?, ?, ?, ?, ?, ?, ?)', [title, description, subject, level, type, file_path, author_id, size]);
+  return getMaterial(result.insertId);
+}
+
 export {
   getUsers,
   getUser,
   createUser,
-  deleteUser
+  deleteUser,
+  uploadMaterial
 };

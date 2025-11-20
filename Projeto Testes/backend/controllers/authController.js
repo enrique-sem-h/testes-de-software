@@ -29,11 +29,8 @@ export const register = async (req, res) => {
         const hashedPassword = await bcrypt.hash(password, 8);
         await db.createUser(name, email, hashedPassword);
         
-        // present success response and redirect to login after 2 seconds
-        res.render('register', { success: 'Usuário registrado com sucesso! Redirecionando para o login...' });
-        setTimeout(() => {
-            res.redirect('/');
-        }, 2000);
+        // redirect to dashboard after successful registration
+        res.status(201).redirect('/login');
         
     } catch (error) {
         console.error('Erro no registro:', error);

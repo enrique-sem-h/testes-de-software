@@ -1,5 +1,6 @@
 import multer from "multer";
 import path from "path";
+import fs from "fs";
 import { fileURLToPath } from "url";
 
 const __filename = fileURLToPath(import.meta.url);
@@ -7,7 +8,11 @@ const __dirname = path.dirname(__filename);
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, path.join(__dirname, "..", "uploads"));
+    const uploadPath = path.join(__dirname, "..", "uploads");
+
+    fs.mkdirSync(uploadPath, { recursive: true });
+
+    cb(null, uploadPath);
   },
   filename: function (req, file, cb) {
     cb(null, Date.now() + "-" + file.originalname);
@@ -24,7 +29,7 @@ function fileFilter(req, file, cb) {
 }
 
 const limits = {
-  fileSize: 2 * 1024 * 1024
+  fileSize: 50 * 1024 * 1024
 };
 
 const upload = multer({ storage, fileFilter, limits });

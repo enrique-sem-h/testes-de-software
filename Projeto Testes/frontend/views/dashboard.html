@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -9,8 +10,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
   <!-- Link pro CSS separado -->
-  <link rel="stylesheet"  href="../css/styles2.css">
+  <link rel="stylesheet" href="../css/styles2.css">
 </head>
+
 <body>
   <div class="wrap">
 
@@ -34,7 +36,7 @@
 
       <div class="auth" role="navigation" aria-label="Acesso">
         <!-- Ajuste o caminho se a sua pasta for diferente -->
-        <a class="btn btn-primary"  title="Cadastrar">
+        <a class="btn btn-primary" title="Cadastrar">
           {{ user.name }}
         </a>
       </div>
@@ -45,13 +47,26 @@
       <div class="hero-card">
         <span class="kicker">Comunidade</span>
         <h2>Compartilhe materiais e aprenda rápido!<br>Conecte-se com colegas</h2>
-        <p class="lead">Plataforma pensada para estudantes trocarem materiais digitais de forma segura e organizada — publique, solicite trocas e encontre conteúdo relevante por assunto e nível.</p>
+        <p class="lead">Plataforma pensada para estudantes trocarem materiais digitais de forma segura e organizada —
+          publique, solicite trocas e encontre conteúdo relevante por assunto e nível.</p>
 
         <div class="stats" aria-hidden="true">
-          <div class="stat"><div class="n">10K+</div><div class="t">Estudantes Ativos</div></div>
-          <div class="stat"><div class="n">50k+</div><div class="t">Materiais Compartilhados</div></div>
-          <div class="stat"><div class="n">100k+</div><div class="t">Trocas Realizadas</div></div>
-          <div class="stat"><div class="n">4.8★</div><div class="t">Avaliação média</div></div>
+          <div class="stat">
+            <div class="n">10K+</div>
+            <div class="t">Estudantes Ativos</div>
+          </div>
+          <div class="stat">
+            <div class="n">50k+</div>
+            <div class="t">Materiais Compartilhados</div>
+          </div>
+          <div class="stat">
+            <div class="n">100k+</div>
+            <div class="t">Trocas Realizadas</div>
+          </div>
+          <div class="stat">
+            <div class="n">4.8★</div>
+            <div class="t">Avaliação média</div>
+          </div>
         </div>
       </div>
     </section>
@@ -68,10 +83,10 @@
           </div>
         </div>
         <div class="auth" role="navigation" aria-label="Acesso">
-        <!-- Ajuste o caminho se a sua pasta for diferente -->
-        <a class="btn btn-primary1"  title="Cadastrar">
-          ⚪ Ver Mais 
-        </a>
+          <!-- Ajuste o caminho se a sua pasta for diferente -->
+          <a class="btn btn-primary1" title="Cadastrar">
+            ⚪ Ver Mais
+          </a>
         </div>
       </div>
 
@@ -243,10 +258,10 @@
         </article>
       </div>
     </section>
-<br><br><br><br>
+    <br><br><br><br>
 
 
-        <header class="app-header" role="banner" aria-label="Cabeçalho do site">
+    <header class="app-header" role="banner" aria-label="Cabeçalho do site">
       <div style="display:flex;align-items:center;gap:14px">
         <div class="brand">
           <div class="logo2">➕</div>
@@ -260,79 +275,66 @@
     </header>
     <!-- Upload (visual-only form) -->
     <section id="upload" class="hero">
-          <div class="panel">
-                <form id="uploadForm">
+      <div class="panel">
+        <form id="uploadForm" action="/api/upload" method="POST" enctype="multipart/form-data">
 
-                    <div class="form-group">
-                        <label>Título do Material</label>
-                        <input type="text" placeholder="Ex: Física - Mecânica Clássica" required>
-                    </div>
+          <div class="form-group">
+            <label>Título do Material</label>
+            <input type="text" name="title" placeholder="Ex: Física - Mecânica Clássica" required>
+          </div>
 
-                    <div class="form-group">
-                        <label>Descrição</label>
-                        <textarea placeholder="Descreva o conteúdo do material..." rows="4" required></textarea>
-                    </div>
+          <div class="form-group">
+            <label>Descrição</label>
+            <textarea name="description" placeholder="Descreva o conteúdo do material..." rows="4"></textarea>
+          </div>
 
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label>Assunto</label>
-                            <select required>
-                                <option value="">Selecione um assunto</option>
-                                <option>Matemática</option>
-                                <option>Português</option>
-                                <option>Física</option>
-                                <option>Química</option>
-                                <option>Biologia</option>
-                                <option>História</option>
-                                <option>Geografia</option>
-                                <option>Inglês</option>
-                            </select>
-                        </div>
-
-                        <div class="form-group">
-                            <label>Nível Escolar</label>
-                            <select required>
-                                <option value="">Selecione um nível</option>
-                                <option>Ensino Fundamental</option>
-                                <option>Ensino Médio</option>
-                                <option>Ensino Superior</option>
-                            </select>
-                        </div>
-
-                        <div class="form-group">
-                            <label>Tipo de Arquivo</label>
-                            <select required>
-                                <option value="">Selecione um tipo</option>
-                                <option>PDF</option>
-                                <option>Vídeo</option>
-                                <option>Apostila</option>
-                                <option>Exercícios</option>
-                                <option>Anotações</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label>Arquivo</label>
-                        <div class="file">
-                            Arraste o arquivo aqui ou clique para selecionar
-                        </div>
-                    </div>
-
-                    <form action="/api/upload" method="POST" enctype="multipart/form-data">
-                      <input type="file" name="arquivo" />
-                      <button type="submit">Enviar</button>
-                    </form>
-
-                </form>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Assunto</label>
+              <input type="text" name="subject" placeholder="Ex: Matemática, História..." required>
             </div>
+
+            <div class="form-group">
+              <label>Nível Escolar</label>
+              <select name="level" required>
+                <option value="">Selecione um nível</option>
+                <option>Ensino Fundamental</option>
+                <option>Ensino Médio</option>
+                <option>Ensino Superior</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label>Tipo de Arquivo</label>
+              <select name="type" required>
+                <option value="">Selecione um tipo</option>
+                <option>Resumo</option>
+                <option>Slides</option>
+                <option>Apostila</option>
+                <option>Exercícios</option>
+                <option>Anotações</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Arquivo</label>
+            <div class="file">
+              <input type="file" name="arquivo" />
+            </div>
+            <button type="submit">Enviar</button>
+          </div>
+
+
+        </form>
+      </div>
     </section>
 
 
     <br><br><br><br>
 
 
-        <header class="app-header" role="banner" aria-label="Cabeçalho do site">
+    <header class="app-header" role="banner" aria-label="Cabeçalho do site">
       <div style="display:flex;align-items:center;gap:14px">
         <div class="brand">
           <div class="logo2">↩️</div>
@@ -378,4 +380,5 @@
 
   </div>
 </body>
+
 </html>
