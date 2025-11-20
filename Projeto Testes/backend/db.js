@@ -37,7 +37,7 @@ async function getMaterial(id) {
   return rows[0];
 }
 
-async function uploadMaterial(title, description, subject, level, type, file_path, author_id, size) {
+async function createMaterial(title, description, subject, level, type, file_path, author_id, size) {
   if (description === undefined) {
     description = '';
   }
@@ -50,5 +50,6 @@ export {
   getUser,
   createUser,
   deleteUser,
-  uploadMaterial
+  getMaterial,
+  createMaterial
 };
