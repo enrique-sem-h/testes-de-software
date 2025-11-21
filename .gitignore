@@ -140,3 +140,6 @@ vite.config.ts.timestamp-*
 
 # Uploads do backend
 backend/uploads/
+
+# cypress screenshots
+cypress/screenshots/

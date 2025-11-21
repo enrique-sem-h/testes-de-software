@@ -1,5 +1,5 @@
 import { jest, test } from '@jest/globals';
-import * as db from "../db.js";
+import * as db from "../../db.js";
 
 beforeEach(() => {
     jest.clearAllMocks();

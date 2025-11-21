@@ -1,12 +1,12 @@
 import { jest } from "@jest/globals";
 
-jest.unstable_mockModule("../db.js", () => ({
+jest.unstable_mockModule("../../db.js", () => ({
   getUser: jest.fn(),
   getAllMaterialsWithAuthors: jest.fn()
 }));
 
-const { getUser, getAllMaterialsWithAuthors } = await import("../db.js");
-const { index, login, register, dashboard } = await import("../controllers/pagesController.js");
+const { getUser, getAllMaterialsWithAuthors } = await import("../../db.js");
+const { index, login, register, dashboard } = await import("../../controllers/pagesController.js");
 
 function mockResponse() {
   const res = {};

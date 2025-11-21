@@ -1,26 +1,26 @@
 import { jest } from '@jest/globals';
 import bcrypt from "bcryptjs";
-import { pool } from "../db.js";
+import { pool } from "../../db.js";
 
 process.env.JWT_SECRET = "teste123";
 
-import { login } from "../controllers/authController.js";
+import { login } from "../../controllers/authController.js";
 
 function mockResponse() {
-    const res = {};
-    res.status = jest.fn().mockReturnValue(res);
-    res.render = jest.fn().mockReturnValue(res);
-    res.redirect = jest.fn().mockReturnValue(res);
-    res.cookie = jest.fn().mockReturnValue(res); 
-    res.json = jest.fn().mockReturnValue(res); 
-    return res;
+  const res = {};
+  res.status = jest.fn().mockReturnValue(res);
+  res.render = jest.fn().mockReturnValue(res);
+  res.redirect = jest.fn().mockReturnValue(res);
+  res.cookie = jest.fn().mockReturnValue(res);
+  res.json = jest.fn().mockReturnValue(res);
+  return res;
 }
-  
+
 
 describe("Teste Unitário: Login", () => {
 
   it("deve falhar quando o usuário não existe", async () => {
-    pool.query = jest.fn().mockResolvedValue([[]]); 
+    pool.query = jest.fn().mockResolvedValue([[]]);
 
     const req = {
       body: { email: "naoexiste@example.com", password: "123456" }
