@@ -1,4 +1,4 @@
-import { jest } from '@jest/globals';
+import { jest, test } from '@jest/globals';
 import * as db from "../db.js";
 
 beforeEach(() => {
@@ -91,6 +91,30 @@ describe('database functions', () => {
         );
 
         expect(material).toEqual(mockMaterial);
+    });
+
+    test('getAllMaterials retorna lista de materiiasi', async () => {
+        const mockRows = [{ id: 1, title: 'Material 1', description: 'Desc1', subject: 'Matemática', level: "Ensino Fundamental", type: "Slides", file_path: "/path/do/arquivo", author_id: 1 }, { id: 2, title: 'Material 2', description: 'Desc1', subject: 'Física', level: "Ensino Médio", type: "Apostila", file_path: "/path/do/arquivo2", author_id: 1 }];
+        db.pool.query = jest.fn().mockResolvedValue([mockRows]);
+
+        const materials = await db.getAllMaterials();
+
+        expect(db.pool.query).toHaveBeenCalledWith('SELECT * FROM materials');
+        expect(materials).toEqual(mockRows);
+    });
+
+    test('getAllMaterialsWithAuthors retorna lista de materiais com nomes dos autores', async () => {
+        const mockRows = [{ id: 1, title: 'Material 1', description: 'Desc1', subject: 'Matemática', level: "Ensino Fundamental", type: "Slides", file_path: "/path/do/arquivo", author_id: 1, author_name: 'Alice' }];
+        const mockUser = { id: 1, name: 'Alice' };
+
+        db.pool.query = jest.fn().mockResolvedValueOnce([[mockUser]]);
+
+        db.pool.query = jest.fn().mockResolvedValue([mockRows]);
+
+        const materials = await db.getAllMaterialsWithAuthors();
+
+        expect(db.pool.query).toHaveBeenCalledWith('SELECT m.*, u.name AS author_name FROM materials AS m INNER JOIN users AS u ON m.author_id = u.id');
+        expect(materials).toEqual(mockRows);
     });
 
 });

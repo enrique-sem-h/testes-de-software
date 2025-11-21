@@ -19,7 +19,7 @@ const storage = multer.diskStorage({
   }
 });
 
-const allowedTypes = ["image/jpeg", "image/png", "image/webp"];
+const allowedTypes = ["image/jpeg", "image/png", "image/webp", "application/pdf", "application/msword", "application/vnd.openxmlformats-officedocument.presentationml.presentation"];
 
 function fileFilter(req, file, cb) {
   if (!allowedTypes.includes(file.mimetype)) {

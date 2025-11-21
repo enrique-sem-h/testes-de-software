@@ -1,10 +1,11 @@
 import { jest } from "@jest/globals";
 
 jest.unstable_mockModule("../db.js", () => ({
-  getUser: jest.fn()  
+  getUser: jest.fn(),
+  getAllMaterialsWithAuthors: jest.fn()
 }));
 
-const { getUser } = await import("../db.js");
+const { getUser, getAllMaterialsWithAuthors } = await import("../db.js");
 const { index, login, register, dashboard } = await import("../controllers/pagesController.js");
 
 function mockResponse() {
@@ -16,7 +17,7 @@ function mockResponse() {
 }
 
 describe("Teste Unitário: pagesController", () => {
-  
+
   it("deve renderizar a página inicial (index)", () => {
     const req = {};
     const res = mockResponse();
@@ -50,11 +51,13 @@ describe("Teste Unitário: pagesController", () => {
       name: "Maria"
     });
 
+    getAllMaterialsWithAuthors.mockResolvedValue([]);
+
     await dashboard(req, res);
 
     expect(getUser).toHaveBeenCalledWith(1);
     expect(res.status).toHaveBeenCalledWith(200);
-    expect(res.render).toHaveBeenCalledWith("dashboard", { user: { id: 1, name: "Maria" } });
+    expect(res.render).toHaveBeenCalledWith("dashboard", { user: { id: 1, name: "Maria" }, materials: [] });
   });
 
 });

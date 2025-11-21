@@ -14,7 +14,8 @@ const register = (req, res) => {
 
 const dashboard = async (req, res) => {
     const user = await db.getUser(req.user.id);
-    res.status(200).render('dashboard', { user });
+    const materials = await db.getAllMaterialsWithAuthors();
+    res.status(200).render('dashboard', { user, materials });
 }
 
 export {

@@ -330,48 +330,33 @@
       </div>
     </section>
 
-
-    <br><br><br><br>
-
-
-    <header class="app-header" role="banner" aria-label="Cabeçalho do site">
-      <div style="display:flex;align-items:center;gap:14px">
-        <div class="brand">
-          <div class="logo2">↩️</div>
-          <div>
-            <h1>Solicitar troca</h1>
-            <p>Troque materias e divida conhecimento com seus colegas</p>
-          </div>
-        </div>
-      </div>
-
-    </header>
-    <!-- Exchange (visual) -->
-    <section id="exchange" class="hero">
+    <!-- For each material, render in a list with mustache-express -->
+    <section id="materials" class="hero">
       <div class="panel">
-        <form>
-          <div class="form-row">
-            <div>
-              <label>Material que procura</label>
-              <input type="text" placeholder="Ex: Álgebra">
+        <h2>Materiais Disponíveis</h2>
+        <div role="list">
+          {{#materials}}
+          <article class="material" role="listitem" aria-label="{{title}}">
+            <div style="display:flex;gap:12px;align-items:center">
+              <div class="icon">📄</div>
+              <div>
+                <h4>{{title}}</h4>
+                <div class="meta">{{author_name}} • {{level}} • {{type}}</div>
+              </div>
             </div>
-            <div>
-              <label>Material que oferece</label>
-              <input type="text" placeholder="Ex: Física">
+
+            <div class="tags" aria-hidden="true">
+              <span class="tag">{{subject}}</span>
+              <span class="tag">{{level}}</span>
             </div>
-          </div>
 
-          <div style="margin-top:12px">
-            <label>Motivo</label>
-            <textarea placeholder="Por que deseja a troca?"></textarea>
-          </div>
-
-          <div style="margin-top:12px;display:flex;gap:10px">
-            <a class="btn btn-primary" href="#home">Criar solicitação</a>
-            <a class="btn btn-ghost" href="#home">Cancelar</a>
-          </div>
-        </form>
-      </div>
+            <div class="footer">
+              <div class="meta">⭐ 0 • 0 avaliações</div>
+              <a class="small-btn" href="#exchange">Solicitar</a>
+            </div>
+          </article>
+          {{/materials}}
+        </div>
     </section>
 
     <footer class="site-footer">

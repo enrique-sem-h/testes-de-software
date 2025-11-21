@@ -45,11 +45,23 @@ async function createMaterial(title, description, subject, level, type, file_pat
   return getMaterial(result.insertId);
 }
 
+async function getAllMaterials() {
+  const [rows] = await pool.query('SELECT * FROM materials');
+  return rows;
+}
+
+async function getAllMaterialsWithAuthors() {
+  const [materials] = await pool.query('SELECT m.*, u.name AS author_name FROM materials AS m INNER JOIN users AS u ON m.author_id = u.id');
+  return materials;
+}
+
 export {
   getUsers,
   getUser,
   createUser,
   deleteUser,
   getMaterial,
-  createMaterial
+  createMaterial,
+  getAllMaterials,
+  getAllMaterialsWithAuthors
 };
