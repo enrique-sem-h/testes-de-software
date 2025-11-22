@@ -35,3 +35,5 @@ app.use("/api", uploadRoutes);
 app.listen(port, () => {
   console.log(`system initialized at http://localhost:${port}`);
 });
+
+export default app;
