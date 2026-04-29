@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>StudyHub— Plataforma de Troca de Materiais</title>
+
+  <!-- Tipografia profissional -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Link pro CSS separado -->
+  <link rel="stylesheet" href="../css/styles2.css">
+</head>
+
+<body>
+  <div class="wrap">
+
+    <!-- Header -->
+    <header class="app-header" role="banner" aria-label="Cabeçalho do site">
+      <div style="display:flex;align-items:center;gap:14px">
+        <div class="brand">
+          <div class="logo">∞</div>
+          <div>
+            <h1>StudyHub</h1>
+            <p>Troca colaborativa de materiais</p>
+          </div>
+        </div>
+
+        <nav class="topnav" aria-label="Menu principal" style="margin-left:18px">
+          <a href="#home">Início</a>
+          <a href="#upload">Compartilhar</a>
+          <a href="#exchange">Trocar</a>
+        </nav>
+      </div>
+
+      <div class="auth" role="navigation" aria-label="Acesso">
+        <!-- Ajuste o caminho se a sua pasta for diferente -->
+        <a class="btn btn-primary" title="Cadastrar">
+          {{ user.name }}
+        </a>
+      </div>
+    </header>
+
+    <!-- Hero -->
+    <section id="home" class="hero">
+      <div class="hero-card">
+        <span class="kicker">Comunidade</span>
+        <h2>Compartilhe materiais e aprenda rápido!<br>Conecte-se com colegas</h2>
+        <p class="lead">Plataforma pensada para estudantes trocarem materiais digitais de forma segura e organizada —
+          publique, solicite trocas e encontre conteúdo relevante por assunto e nível.</p>
+
+        <div class="stats" aria-hidden="true">
+          <div class="stat">
+            <div class="n">10K+</div>
+            <div class="t">Estudantes Ativos</div>
+          </div>
+          <div class="stat">
+            <div class="n">50k+</div>
+            <div class="t">Materiais Compartilhados</div>
+          </div>
+          <div class="stat">
+            <div class="n">100k+</div>
+            <div class="t">Trocas Realizadas</div>
+          </div>
+          <div class="stat">
+            <div class="n">4.8★</div>
+            <div class="t">Avaliação média</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <br><br><br><Br>
+
+    <header class="app-header" role="banner" aria-label="Cabeçalho do site">
+      <div style="display:flex;align-items:center;gap:14px">
+        <div class="brand">
+          <div class="logo1">🔖</div>
+          <div>
+            <h1>Materiais em destaque</h1>
+            <p>Os principais materiáis mais acessados e melhores avaliados na palma das suas mãos</p>
+          </div>
+        </div>
+        <div class="auth" role="navigation" aria-label="Acesso">
+          <!-- Ajuste o caminho se a sua pasta for diferente -->
+          <a class="btn btn-primary1" title="Cadastrar">
+            ⚪ Ver Mais
+          </a>
+        </div>
+      </div>
+
+    </header>
+
+    <!-- Featured -->
+    <section class="section" aria-labelledby="destaques">
+      <div class="grid" role="list">
+        <article class="material" role="listitem" aria-label="Física - Mecânica Clássica">
+          <div style="display:flex;gap:12px;align-items:center">
+            <div class="icon">📕</div>
+            <div>
+              <h4>Física — Mecânica Clássica</h4>
+              <div class="meta">João Silva • Ensino Médio • PDF</div>
+            </div>
+          </div>
+
+          <div class="tags" aria-hidden="true">
+            <span class="tag">Física</span>
+            <span class="tag">Ensino Médio</span>
+          </div>
+
+          <div class="footer">
+            <div class="meta">⭐ 4.8 • 24 avaliações</div>
+            <a class="small-btn" href="#exchange">Solicitar</a>
+          </div>
+        </article>
+
+        <article class="material" role="listitem" aria-label="Química Orgânica">
+          <div style="display:flex;gap:12px;align-items:center">
+            <div class="icon">📗</div>
+            <div>
+              <h4>Apostila de Química Orgânica</h4>
+              <div class="meta">Maria Santos • Ensino Médio • PDF</div>
+            </div>
+          </div>
+
+          <div class="tags">
+            <span class="tag">Química</span>
+            <span class="tag">Apostila</span>
+          </div>
+
+          <div class="footer">
+            <div class="meta">⭐ 4.9 • 42 avaliações</div>
+            <a class="small-btn" href="#exchange">Solicitar</a>
+          </div>
+        </article>
+
+        <article class="material" role="listitem" aria-label="Videoaula História">
+          <div style="display:flex;gap:12px;align-items:center">
+            <div class="icon">🎥</div>
+            <div>
+              <h4>Videoaula — História do Brasil</h4>
+              <div class="meta">Prof. Carlos Mendes • Ensino Fundamental • Vídeo</div>
+            </div>
+          </div>
+
+          <div class="tags">
+            <span class="tag">História</span>
+            <span class="tag">Vídeo</span>
+          </div>
+
+          <div class="footer">
+            <div class="meta">⭐ 4.7 • 18 avaliações</div>
+            <a class="small-btn" href="#exchange">Solicitar</a>
+          </div>
+        </article>
+
+        <article class="material" role="listitem" aria-label="Matemática — Álgebra">
+          <div style="display:flex;gap:12px;align-items:center">
+            <div class="icon">📙</div>
+            <div>
+              <h4>Exercícios de Matemática — Álgebra</h4>
+              <div class="meta">Ana Costa • Ensino Médio • PDF</div>
+            </div>
+          </div>
+
+          <div class="tags">
+            <span class="tag">Matemática</span>
+            <span class="tag">Exercícios</span>
+          </div>
+
+          <div class="footer">
+            <div class="meta">⭐ 4.6 • 31 avaliações</div>
+            <a class="small-btn" href="#exchange">Solicitar</a>
+          </div>
+        </article>
+      </div>
+      <br>
+      <div class="grid" role="list">
+        <article class="material" role="listitem" aria-label="Matemática- Calculo Avançado<">
+          <div style="display:flex;gap:12px;align-items:center">
+            <div class="icon">📘</div>
+            <div>
+              <h4>Matemática — Calculo Avançado</h4>
+              <div class="meta">Enrique Lima • UCB • PDF</div>
+            </div>
+          </div>
+
+          <div class="tags" aria-hidden="true">
+            <span class="tag">Matemática</span>
+            <span class="tag">Universidade</span>
+          </div>
+
+          <div class="footer">
+            <div class="meta">⭐ 5.0 • 3.000 avaliações</div>
+            <a class="small-btn" href="#exchange">Solicitar</a>
+          </div>
+        </article>
+
+        <article class="material" role="listitem" aria-label="Química Orgânica">
+          <div style="display:flex;gap:12px;align-items:center">
+            <div class="icon">📗</div>
+            <div>
+              <h4>Apostila de Química Orgânica</h4>
+              <div class="meta">Maria Santos • Ensino Médio • PDF</div>
+            </div>
+          </div>
+
+          <div class="tags">
+            <span class="tag">Química</span>
+            <span class="tag">Apostila</span>
+          </div>
+
+          <div class="footer">
+            <div class="meta">⭐ 4.9 • 42 avaliações</div>
+            <a class="small-btn" href="#exchange">Solicitar</a>
+          </div>
+        </article>
+
+        <article class="material" role="listitem" aria-label="Videoaula História">
+          <div style="display:flex;gap:12px;align-items:center">
+            <div class="icon">🎥</div>
+            <div>
+              <h4>Videoaula — História do Brasil</h4>
+              <div class="meta">Prof. Carlos Mendes • Ensino Fundamental • Vídeo</div>
+            </div>
+          </div>
+
+          <div class="tags">
+            <span class="tag">História</span>
+            <span class="tag">Vídeo</span>
+          </div>
+
+          <div class="footer">
+            <div class="meta">⭐ 4.7 • 18 avaliações</div>
+            <a class="small-btn" href="#exchange">Solicitar</a>
+          </div>
+        </article>
+
+        <article class="material" role="listitem" aria-label="Matemática — Álgebra">
+          <div style="display:flex;gap:12px;align-items:center">
+            <div class="icon">📙</div>
+            <div>
+              <h4>Exercícios de Matemática — Álgebra</h4>
+              <div class="meta">Ana Costa • Ensino Médio • PDF</div>
+            </div>
+          </div>
+
+          <div class="tags">
+            <span class="tag">Matemática</span>
+            <span class="tag">Exercícios</span>
+          </div>
+
+          <div class="footer">
+            <div class="meta">⭐ 4.6 • 31 avaliações</div>
+            <a class="small-btn" href="#exchange">Solicitar</a>
+          </div>
+        </article>
+      </div>
+    </section>
+    <br><br><br><br>
+
+
+    <header class="app-header" role="banner" aria-label="Cabeçalho do site">
+      <div style="display:flex;align-items:center;gap:14px">
+        <div class="brand">
+          <div class="logo2">➕</div>
+          <div>
+            <h1>Compartilhe seu Material</h1>
+            <p>Faça upload de seus materiais de estudo e ajude outros estudantes a aprender</p>
+          </div>
+        </div>
+      </div>
+
+    </header>
+    <!-- Upload (visual-only form) -->
+    <section id="upload" class="hero">
+      <div class="panel">
+        <form id="uploadForm" action="/api/upload" method="POST" enctype="multipart/form-data">
+
+          <div class="form-group">
+            <label>Título do Material</label>
+            <input type="text" name="title" placeholder="Ex: Física - Mecânica Clássica" required>
+          </div>
+
+          <div class="form-group">
+            <label>Descrição</label>
+            <textarea name="description" placeholder="Descreva o conteúdo do material..." rows="4"></textarea>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label>Assunto</label>
+              <input type="text" name="subject" placeholder="Ex: Matemática, História..." required>
+            </div>
+
+            <div class="form-group">
+              <label>Nível Escolar</label>
+              <select name="level" required>
+                <option value="">Selecione um nível</option>
+                <option>Ensino Fundamental</option>
+                <option>Ensino Médio</option>
+                <option>Ensino Superior</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label>Tipo de Arquivo</label>
+              <select name="type" required>
+                <option value="">Selecione um tipo</option>
+                <option>Resumo</option>
+                <option>Slides</option>
+                <option>Apostila</option>
+                <option>Exercícios</option>
+                <option>Anotações</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Arquivo</label>
+            <div class="file">
+              <input type="file" name="arquivo" />
+            </div>
+            <button type="submit">Enviar</button>
+          </div>
+
+
+        </form>
+      </div>
+    </section>
+
+    <!-- For each material, render in a list with mustache-express -->
+    <section id="materials" class="hero">
+      <div class="panel">
+        <h2>Materiais Disponíveis</h2>
+        <div role="list">
+          {{#materials}}
+          <article class="material" role="listitem" aria-label="{{title}}">
+            <div style="display:flex;gap:12px;align-items:center">
+              <div class="icon">📄</div>
+              <div>
+                <h4>{{title}}</h4>
+                <div class="meta">{{author_name}} • {{level}} • {{type}}</div>
+              </div>
+            </div>
+
+            <div class="tags" aria-hidden="true">
+              <span class="tag">{{subject}}</span>
+              <span class="tag">{{level}}</span>
+            </div>
+
+            <div class="footer">
+              <div class="meta">⭐ 0 • 0 avaliações</div>
+              <a class="small-btn" href="#exchange">Solicitar</a>
+            </div>
+          </article>
+          {{/materials}}
+        </div>
+    </section>
+
+    <footer class="site-footer">
+      &copy; 2025 StudyHub— Todos os direitos reservados.
+    </footer>
+
+  </div>
+</body>
+
+</html>

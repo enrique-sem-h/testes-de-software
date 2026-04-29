@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Relatório de Teste de Carga - Projeto Testes</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+            background-color: #f9f9f9;
+        }
+        h1, h2, h3 {
+            color: #333;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #eee;
+        }
+        .success {
+            color: green;
+            font-weight: bold;
+        }
+        .error {
+            color: red;
+            font-weight: bold;
+        }
+        .note {
+            font-style: italic;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <h1>Relatório de Teste de Carga / Stress</h1>
+
+    <h2>Projeto:</h2>
+    <p>Projeto Testes – Backend</p>
+
+    <h2>URL Testada:</h2>
+    <p><code>http://localhost:3000/</code></p>
+
+    <h2>Ferramenta Utilizada:</h2>
+    <p><strong>hey</strong> (<a href="https://github.com/rakyll/hey" target="_blank">https://github.com/rakyll/hey</a>) – ferramenta de benchmark HTTP em linha de comando</p>
+
+    <h2>Objetivo do Teste</h2>
+    <p>Avaliar a capacidade do servidor de lidar com múltiplas requisições simultâneas, medindo:</p>
+    <ul>
+        <li>Latência média e máxima</li>
+        <li>Throughput (requisições por segundo)</li>
+        <li>Ponto de ruptura (quando o servidor começa a falhar)</li>
+    </ul>
+
+    <h2>Cenário de Teste</h2>
+    <ul>
+        <li>Requisições totais: 10.000</li>
+        <li>Conexões simultâneas: 200</li>
+        <li>Tipo de requisição: GET na raiz (<code>/</code>)</li>
+        <li>Ambiente: Localhost (desenvolvimento)</li>
+    </ul>
+
+    <h2>Resultados Observados</h2>
+
+    <h3>Antes do ponto de ruptura</h3>
+    <table>
+        <tr>
+            <th>Requisições</th>
+            <th>Concorrência</th>
+            <th>Status</th>
+            <th>Latência Média</th>
+            <th>Latência Máxima</th>
+            <th>Throughput</th>
+        </tr>
+        <tr>
+            <td>5.000</td>
+            <td>100</td>
+            <td class="success">100% sucesso</td>
+            <td>7,3 ms</td>
+            <td>328 ms</td>
+            <td>10.166 req/s</td>
+        </tr>
+    </table>
+
+    <h3>Ponto de ruptura identificado</h3>
+    <p class="error">Erros observados:</p>
+    <ul>
+        <li>read: connection reset by peer</li>
+        <li>write: broken pipe</li>
+    </ul>
+    <p class="note">O servidor não conseguiu atender todas as requisições simultâneas, indicando que atingiu seu limite de concorrência.</p>
+
+    <h2>Conclusão</h2>
+    <ul>
+        <li>O servidor suporta confortavelmente até aproximadamente <strong>100–150 conexões simultâneas</strong> sem erros.</li>
+        <li>Acima disso, começam a ocorrer <strong>falhas de conexão</strong>.</li>
+        <li>Ponto de ruptura aproximado: <strong>200 conexões simultâneas</strong> para o endpoint <code>/</code>.</li>
+    </ul>
+</body>
+</html>

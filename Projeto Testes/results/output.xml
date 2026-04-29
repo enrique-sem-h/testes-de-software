@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.3.2 (Python 3.9.6 on darwin)" generated="2025-11-24T15:06:15.395699" rpa="false" schemaversion="5">
+<suite id="s1" name="Testes-De-Software" source="/Users/marianaterol/Documents/testes-de-software">
+<suite id="s1-s1" name="Projeto Testes" source="/Users/marianaterol/Documents/testes-de-software/Projeto Testes">
+<suite id="s1-s1-s1" name="Backend" source="/Users/marianaterol/Documents/testes-de-software/Projeto Testes/backend">
+<suite id="s1-s1-s1-s1" name="Tests" source="/Users/marianaterol/Documents/testes-de-software/Projeto Testes/backend/tests">
+<suite id="s1-s1-s1-s1-s1" name="Register Tests" source="/Users/marianaterol/Documents/testes-de-software/Projeto Testes/backend/tests/register_tests.robot">
+<test id="s1-s1-s1-s1-s1-t1" name="Cadastro com sucesso" line="7">
+<kw name="Abrir Navegador" owner="browser" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-11-24T15:06:15.530609" level="INFO">Opening browser 'chrome' to base url 'http://localhost:3000'.</msg>
+<arg>${BASE_URL}</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-11-24T15:06:15.530318" elapsed="1.192169"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-11-24T15:06:16.723074" elapsed="0.047918"/>
+</kw>
+<status status="PASS" start="2025-11-24T15:06:15.529725" elapsed="1.242206"/>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2025-11-24T15:06:16.772653" level="INFO">Opening url 'http://localhost:3000/register'</msg>
+<arg>${BASE_URL}/register</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2025-11-24T15:06:16.772279" elapsed="0.024882"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-11-24T15:06:16.797951" level="INFO">Typing text 'Teste Usuário' into text field 'id:name'.</msg>
+<arg>id:name</arg>
+<arg>Teste Usuário</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-24T15:06:16.797458" elapsed="0.104980"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-11-24T15:06:16.903046" level="INFO">Typing text 'teste100@example.com' into text field 'id:email'.</msg>
+<arg>id:email</arg>
+<arg>teste100@example.com</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-24T15:06:16.902697" elapsed="0.034538"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-11-24T15:06:16.937805" level="INFO">Typing text '123456' into text field 'id:password'.</msg>
+<arg>id:password</arg>
+<arg>123456</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-24T15:06:16.937503" elapsed="0.031773"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-11-24T15:06:16.969803" level="INFO">Typing text '123456' into text field 'id:confirmPassword'.</msg>
+<arg>id:confirmPassword</arg>
+<arg>123456</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-24T15:06:16.969530" elapsed="0.029916"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-11-24T15:06:17.000036" level="INFO">Clicking button 'xpath=//button[text()="Cadastrar"]'.</msg>
+<arg>xpath=//button[text()="Cadastrar"]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-24T15:06:16.999711" elapsed="0.075888"/>
+</kw>
+<kw name="Wait Until Location Is" owner="SeleniumLibrary">
+<arg>${BASE_URL}/login</arg>
+<doc>Waits until the current URL is ``expected``.</doc>
+<status status="PASS" start="2025-11-24T15:06:17.075916" elapsed="0.002927"/>
+</kw>
+<kw name="Fechar Navegador" owner="browser" type="TEARDOWN">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-11-24T15:06:17.079513" elapsed="0.071127"/>
+</kw>
+<status status="PASS" start="2025-11-24T15:06:17.079209" elapsed="0.071611"/>
+</kw>
+<status status="PASS" start="2025-11-24T15:06:15.529088" elapsed="1.621872"/>
+</test>
+<test id="s1-s1-s1-s1-s1-t2" name="Cadastro com senhas diferentes" line="18">
+<kw name="Abrir Navegador" owner="browser" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-11-24T15:06:17.152857" level="INFO">Opening browser 'chrome' to base url 'http://localhost:3000'.</msg>
+<arg>${BASE_URL}</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-11-24T15:06:17.152518" elapsed="0.600242"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-11-24T15:06:17.753173" elapsed="0.361812"/>
+</kw>
+<status status="PASS" start="2025-11-24T15:06:17.152108" elapsed="0.963062"/>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2025-11-24T15:06:18.115699" level="INFO">Opening url 'http://localhost:3000/register'</msg>
+<arg>${BASE_URL}/register</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2025-11-24T15:06:18.115403" elapsed="0.012240"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-11-24T15:06:18.128244" level="INFO">Typing text 'Usuário Teste' into text field 'id:name'.</msg>
+<arg>id:name</arg>
+<arg>Usuário Teste</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-24T15:06:18.127927" elapsed="0.091970"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-11-24T15:06:18.220459" level="INFO">Typing text 'usuario@example.com' into text field 'id:email'.</msg>
+<arg>id:email</arg>
+<arg>usuario@example.com</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-24T15:06:18.220175" elapsed="0.034315"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-11-24T15:06:18.254961" level="INFO">Typing text '123456' into text field 'id:password'.</msg>
+<arg>id:password</arg>
+<arg>123456</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-24T15:06:18.254723" elapsed="0.033777"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-11-24T15:06:18.288983" level="INFO">Typing text '654321' into text field 'id:confirmPassword'.</msg>
+<arg>id:confirmPassword</arg>
+<arg>654321</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-24T15:06:18.288735" elapsed="0.032445"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-11-24T15:06:18.321664" level="INFO">Clicking button 'xpath=//button[text()="Cadastrar"]'.</msg>
+<arg>xpath=//button[text()="Cadastrar"]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-24T15:06:18.321423" elapsed="0.044163"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>css:.error</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-11-24T15:06:18.366281" elapsed="0.012257"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2025-11-24T15:06:18.386961" level="INFO">Current page contains text 'senhas não coincidem'.</msg>
+<arg>senhas não coincidem</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="PASS" start="2025-11-24T15:06:18.378761" elapsed="0.008342"/>
+</kw>
+<kw name="Fechar Navegador" owner="browser" type="TEARDOWN">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-11-24T15:06:18.388032" elapsed="0.072734"/>
+</kw>
+<status status="PASS" start="2025-11-24T15:06:18.387755" elapsed="0.073186"/>
+</kw>
+<status status="PASS" start="2025-11-24T15:06:17.151576" elapsed="1.309540"/>
+</test>
+<test id="s1-s1-s1-s1-s1-t3" name="Cadastro com email inválido" line="30">
+<kw name="Abrir Navegador" owner="browser" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-11-24T15:06:18.462590" level="INFO">Opening browser 'chrome' to base url 'http://localhost:3000'.</msg>
+<arg>${BASE_URL}</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-11-24T15:06:18.462383" elapsed="0.631266"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-11-24T15:06:19.094159" elapsed="0.358357"/>
+</kw>
+<status status="PASS" start="2025-11-24T15:06:18.462135" elapsed="0.990591"/>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2025-11-24T15:06:19.453244" level="INFO">Opening url 'http://localhost:3000/register'</msg>
+<arg>${BASE_URL}/register</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2025-11-24T15:06:19.452977" elapsed="0.013440"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-11-24T15:06:19.467028" level="INFO">Typing text 'Usuário Teste' into text field 'id:name'.</msg>
+<arg>id:name</arg>
+<arg>Usuário Teste</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-24T15:06:19.466681" elapsed="0.090678"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-11-24T15:06:19.557834" level="INFO">Typing text 'email-invalido' into text field 'id:email'.</msg>
+<arg>id:email</arg>
+<arg>email-invalido</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-24T15:06:19.557601" elapsed="0.033696"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-11-24T15:06:19.592296" level="INFO">Typing text '123456' into text field 'id:password'.</msg>
+<arg>id:password</arg>
+<arg>123456</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-24T15:06:19.591843" elapsed="0.032487"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-11-24T15:06:19.624934" level="INFO">Typing text '123456' into text field 'id:confirmPassword'.</msg>
+<arg>id:confirmPassword</arg>
+<arg>123456</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-24T15:06:19.624562" elapsed="0.031088"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-11-24T15:06:19.656279" level="INFO">Executing JavaScript:
+document.getElementById('email').setAttribute('type', 'text')
+Without any arguments.</msg>
+<arg>document.getElementById('email').setAttribute('type', 'text')</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-11-24T15:06:19.655899" elapsed="0.003148"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-11-24T15:06:19.659533" level="INFO">Executing JavaScript:
+document.getElementById('email').removeAttribute('required')
+Without any arguments.</msg>
+<arg>document.getElementById('email').removeAttribute('required')</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-11-24T15:06:19.659240" elapsed="0.002454"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-11-24T15:06:19.662088" level="INFO">Clicking button 'xpath=//button[text()="Cadastrar"]'.</msg>
+<arg>xpath=//button[text()="Cadastrar"]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-24T15:06:19.661876" elapsed="0.045364"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>css:.error</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-11-24T15:06:19.707746" elapsed="0.012401"/>
+</kw>
+<kw name="Fechar Navegador" owner="browser" type="TEARDOWN">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-11-24T15:06:19.721057" elapsed="0.071035"/>
+</kw>
+<status status="PASS" start="2025-11-24T15:06:19.720658" elapsed="0.071599"/>
+</kw>
+<status status="PASS" start="2025-11-24T15:06:18.461744" elapsed="1.330631"/>
+</test>
+<status status="PASS" start="2025-11-24T15:06:15.446894" elapsed="4.346205"/>
+</suite>
+<status status="PASS" start="2025-11-24T15:06:15.446049" elapsed="4.348107"/>
+</suite>
+<status status="PASS" start="2025-11-24T15:06:15.445317" elapsed="4.349631"/>
+</suite>
+<status status="PASS" start="2025-11-24T15:06:15.444527" elapsed="4.350978"/>
+</suite>
+<status status="PASS" start="2025-11-24T15:06:15.430908" elapsed="4.365261"/>
+</suite>
+<statistics>
+<total>
+<stat pass="3" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Testes-De-Software" id="s1" pass="3" fail="0" skip="0">Testes-De-Software</stat>
+<stat name="Projeto Testes" id="s1-s1" pass="3" fail="0" skip="0">Testes-De-Software.Projeto Testes</stat>
+<stat name="Backend" id="s1-s1-s1" pass="3" fail="0" skip="0">Testes-De-Software.Projeto Testes.Backend</stat>
+<stat name="Tests" id="s1-s1-s1-s1" pass="3" fail="0" skip="0">Testes-De-Software.Projeto Testes.Backend.Tests</stat>
+<stat name="Register Tests" id="s1-s1-s1-s1-s1" pass="3" fail="0" skip="0">Testes-De-Software.Projeto Testes.Backend.Tests.Register Tests</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

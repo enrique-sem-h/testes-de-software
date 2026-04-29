@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Login</title>
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+
+<body>
+
+  <div class="card">
+    <h2>Entrar</h2>
+    <form id="loginForm" action="/auth/login" method="POST">
+      <input type="email" placeholder="E-mail" id="email" name="email" value="{{email}}">
+      <input type="password" placeholder="Senha" id="senha" name="password" value="{{password}}">
+      <button type="submit">Entrar</button>
+    </form>
+    <p class="msg">Não tem uma conta? <a href="/register">Cadastre-se</a></p>
+    <div id="mensagem" class="msg"></div>
+    {{#error}}
+      <p class="msg error">{{error}}</p>
+    {{/error}}
+  </div>
+  
+</body>
+
+</html>

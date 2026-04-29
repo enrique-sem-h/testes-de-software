@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cadastro</title>
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+
+<body>
+  <div class="card">
+    <h2>Criar Conta</h2>
+    <form id="registerForm" action="/auth/register" method="POST">
+      <input type="text" id="name" name="name" placeholder="Full Name" value="{{name}}">
+      <input type="email" id="email" name="email" placeholder="Email" value="{{email}}">
+      <input type="password" id="password" name="password" placeholder="Password" value="{{password}}">
+      <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password"
+        value="{{confirmPassword}}">
+      <button type="submit">Cadastrar</button>
+    </form>
+    <p class="msg">Já tem uma conta? <a href="/login">Entrar</a></p>
+    <div id="mensagem" class="msg">
+      {{#success}}<p class="msg success"> Conta criada com sucesso!</p>{{/success}}
+      {{#error}}<p class="msg error">{{{error}}}</p>{{/error}}
+    </div>
+  </div>
+</body>
+
+</html>
